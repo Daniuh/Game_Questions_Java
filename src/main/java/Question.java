@@ -1,7 +1,7 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Question {
-
     private Integer id = 1;
     private String question;
     private String correctAnswer;
@@ -14,6 +14,10 @@ public class Question {
         this.possibleAnswers = possibleAnswers;
     }
 
+    public Question() {
+
+    }
+
     public String getCorrectAnswer() {
         return correctAnswer;
     }
@@ -24,11 +28,13 @@ public class Question {
                 "Opciones = " + Arrays.toString(possibleAnswers) + '\n' ;
     }
 
-    public void answerQuestion() {
-        
-    }
 
-    public void validateResponse() {
-        
+
+    public Boolean validateResponse(String userAnswer) {
+
+        if(userAnswer == correctAnswer){
+            return true;
+        }
+        return false;
     }
 }

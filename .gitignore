@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+# .idea package
+.idea
+
+# pom.xml file
+pom.xml
+
 # Log file
 *.log
 

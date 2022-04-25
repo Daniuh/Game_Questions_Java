@@ -27,14 +27,4 @@ public class Question {
         return '\n' + "Pregunta = " + question + '\n' +
                 "Opciones = " + Arrays.toString(possibleAnswers) + '\n' ;
     }
-
-
-
-    public Boolean validateResponse(String userAnswer) {
-
-        if(userAnswer == correctAnswer){
-            return true;
-        }
-        return false;
-    }
 }

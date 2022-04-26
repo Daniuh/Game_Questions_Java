@@ -22,6 +22,7 @@ public class Question {
         return correctAnswer;
     }
 
+
     @Override
     public String toString() {
         return '\n' + "Pregunta = " + question + '\n' +

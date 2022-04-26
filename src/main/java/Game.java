@@ -1,9 +1,12 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    private Integer currentRound;
-    private Integer round;
+    private Round currentRound;
+    private List<Round> rounds;
     private Player player;
+
+    private Scanner initialScanner = new Scanner(System.in);
     
    public void rules(){
        System.out.println("|*********( Información )*********| \n" +
@@ -16,5 +19,13 @@ public class Game {
                             " si decide continuar, y en la siguiente pregunta falla, se finalizara el juego y perdera todo. \n " +
                             "|*********( Buena suerte )*********|");
    }
+
+
+   public void setUp(){
+        // this.rounds.add();
+   }
+   /*
    Rounds rounds = new Rounds();
+
+    */
 }

@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Misc {
 
-    public static Integer generateRandom(Integer max, Integer min) {
+    public static Integer generateRandom(Integer max) {
         Random random = new Random();
-        return random.nextInt(max + min);
+        return random.nextInt(max + 1) + 1;
     }
 }

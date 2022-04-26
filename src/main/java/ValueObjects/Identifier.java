@@ -6,7 +6,7 @@ public class Identifier {
     private Integer value;
 
     public Identifier() {
-        this.value = Misc.generateRandom(100,0);
+        this.value = Misc.generateRandom(100);
     }
 
     public Integer getValue() {

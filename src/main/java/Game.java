@@ -1,33 +1,24 @@
-import Utils.Misc;
 import ValueObjects.Answer.IsRight;
 import ValueObjects.Identifier;
+import ValueObjects.Player.TotalScore;
 import ValueObjects.Question.Label;
 import ValueObjects.Round.Category;
 import ValueObjects.Round.PrizeToGet;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Game {
     private Round currentRound;
     private List<Round> rounds;
     private Player player;
 
-    private Scanner initialScanner = new Scanner(System.in);
-
-    public void rules() {
-        System.out.println("|*********( Información )*********| \n" +
-                "~ Cada pregunta tiene 4 opciones. \n" +
-                "~ La dificultad de las preguntas irá subiendo según la ronda en la que estés. \n" +
-                "~ Son 5 rondas, cada una contiene 1 pregunta. \n" +
-                "~ Si contesta la pregunta correctamente, se le darán puntos. \n" +
-                "~ Si contesta incorrectamente se finalizará el juego \n " +
-                "~ Al responder cada pregunta, si contesta correctamente, tendra la oportunidad de retirarse con sus puntos," +
-                " si decide continuar, y en la siguiente pregunta falla, se finalizara el juego y perdera todo. \n " +
-                "|*********( Buena suerte )*********|");
+    public Game() {
+        this.rounds = new ArrayList<>();
     }
 
+    public void launchRound(){
+        //System.out.println(this.currentRound.getQuestions().size());
+    }
 
     public void setUp() {
         List<Question> questions = new ArrayList<>();
@@ -75,7 +66,7 @@ public class Game {
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(50), questions, new Category("Facil")));
         questions.clear();
 
-        //TODO ronda 2
+        //Ronda 2
 
         answers.add(new Answer(new Label("Nietzsche"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Piedad Bonnetti"), new IsRight(Boolean.FALSE)));
@@ -120,7 +111,7 @@ public class Game {
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(100), questions, new Category("No tan facil")));
         questions.clear();
 
-        //TODO ronda 3
+        //Ronda 3
 
         answers.add(new Answer(new Label("Estados Unidos"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Grecia"), new IsRight(Boolean.TRUE)));
@@ -165,7 +156,7 @@ public class Game {
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(150), questions, new Category("Intermedio")));
         questions.clear();
 
-        //TODO ronda 4
+        //Ronda 4
 
         answers.add(new Answer(new Label("Italia"), new IsRight(Boolean.TRUE)));
         answers.add(new Answer(new Label("Francia"), new IsRight(Boolean.FALSE)));
@@ -210,7 +201,7 @@ public class Game {
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(200), questions, new Category("Casi dificil")));
         questions.clear();
 
-        //TODO ronda 5
+        //Ronda 5
 
         answers.add(new Answer(new Label("Depredación"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Parasitismo"), new IsRight(Boolean.FALSE)));
@@ -253,13 +244,35 @@ public class Game {
         questions.add(new Question(new Label("En nuestro planeta hay gran diversidad de ecosistemas que en su conjunto constituyen lo que se denomina:"), answers));
         answers.clear();
 
+        System.out.println(questions.size());
+
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions, new Category("Dificil")));
         questions.clear();
 
-
+        this.initializeCurrentRound();
+        this.rules();
+        this.setPlayer();
     }
-   /*
-   Rounds rounds = new Rounds();
 
-    */
+    private void setPlayer(){
+        Player player = new Player(new Identifier(), new TotalScore(0));
+
+        player.playerRegistration();
+    }
+
+    private void rules() {
+        System.out.println("|*********( Información )*********| \n" +
+                "~ Cada pregunta tiene 4 opciones. \n" +
+                "~ La dificultad de las preguntas irá subiendo según la ronda en la que estés. \n" +
+                "~ Son 5 rondas, cada una contiene 1 pregunta. \n" +
+                "~ Si contesta la pregunta correctamente, se le darán puntos. \n" +
+                "~ Si contesta incorrectamente se finalizará el juego \n " +
+                "~ Al responder cada pregunta, si contesta correctamente, tendra la oportunidad de retirarse con sus puntos," +
+                " si decide continuar, y en la siguiente pregunta falla, se finalizara el juego y perdera todo. \n " +
+                "|*********( Buena suerte )*********|");
+    }
+
+    private void initializeCurrentRound(){
+        this.currentRound = this.rounds.get(0);
+    }
 }

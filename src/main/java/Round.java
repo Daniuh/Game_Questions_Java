@@ -1,3 +1,4 @@
+import Utils.Misc;
 import ValueObjects.Identifier;
 import ValueObjects.Round.Category;
 import ValueObjects.Round.PrizeToGet;
@@ -16,10 +17,16 @@ public class Round {
         this.category = category;
     }
 
-    public Question getRandomQuestion (){
-        this.questions.get()
-        return null;
+    public Boolean launchQuestion(){
+        Question question = this.getRandomQuestion();
+        return question.replyQuestion();
     }
+
+    private Question getRandomQuestion (){
+        return this.questions.get(Misc.generateRandom(4,0));
+    }
+
+
 
     /*
     public void answerPlayGame(){

@@ -1,6 +1,3 @@
-import ValueObjects.Question.CorrectAnswers;
-import ValueObjects.Question.PossibleAnswers;
-
 import java.util.Scanner;
 
 public class Rounds {
@@ -30,7 +27,7 @@ public class Rounds {
         return answerRandom;
     }
 
-    static Question question = new Question();
+  //  static Question question = new Question();
 
     public static void answerQuestion() {
         Scanner answerPersonQuestion = new Scanner(System.in);

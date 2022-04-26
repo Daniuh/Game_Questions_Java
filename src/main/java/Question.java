@@ -1,31 +1,33 @@
-import java.util.Arrays;
+import ValueObjects.Question.Label;
+import java.util.List;
 import java.util.Scanner;
 
+import static java.lang.System.in;
+
 public class Question {
-    private Integer id = 1;
-    private String question;
-    private String correctAnswer;
-    private String[] possibleAnswers = new String[4];
+    private Label label;
+    private List<Answer> answers;
 
-    public Question(String question, String correctAnswer, String[] possibleAnswers) {
-        this.id = id++;
-        this.question = question;
-        this.correctAnswer = correctAnswer;
-        this.possibleAnswers = possibleAnswers;
+    private final Scanner read = new Scanner(in);
+
+    public Question(Label label, List<Answer> answers) {
+        this.label = label;
+        this.answers = answers;
     }
 
-    public Question() {
+  public Boolean replyQuestion(){
+      System.out.println(this.label);
 
-    }
+      for (int i = 0; i < answers.size(); i++) {
+          System.out.println(i + 1 + " " + answers.get(i).getLabel().getValue());
+      }
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
+      System.out.println("Ingrese el número de la respuesta: ");
+      return this.validateResponse(read.nextInt());
+  }
 
+  private Boolean validateResponse(Integer userResponse){
+        return this.answers.get(userResponse).getIsRight().getValue();
 
-    @Override
-    public String toString() {
-        return '\n' + "Pregunta = " + question + '\n' +
-                "Opciones = " + Arrays.toString(possibleAnswers) + '\n' ;
-    }
+  }
 }

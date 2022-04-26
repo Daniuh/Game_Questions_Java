@@ -26,8 +26,6 @@ public class Round {
         return this.questions.get(Misc.generateRandom(4,0));
     }
 
-
-
     /*
     public void answerPlayGame(){
         Scanner answerPerson = new Scanner(System.in);

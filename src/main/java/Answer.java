@@ -5,6 +5,11 @@ public class Answer {
     private Label label;
     private IsRight isRight;
 
+    public Answer(Label label, IsRight isRight) {
+        this.label = label;
+        this.isRight = isRight;
+    }
+
     public Label getLabel() {
         return label;
     }

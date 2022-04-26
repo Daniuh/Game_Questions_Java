@@ -17,7 +17,7 @@ public class Game {
     }
 
     public void launchRound(){
-        //System.out.println(this.currentRound.getQuestions().size());
+        System.out.println(this.currentRound.launchQuestion());
     }
 
     public void setUp() {
@@ -63,7 +63,7 @@ public class Game {
         questions.add(new Question(new Label("¿Cuál es el lugar más frio del mundo?"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(50), questions, new Category("Facil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(50), questions, new Category("Fácil")));
         questions.clear();
 
         //Ronda 2
@@ -81,7 +81,7 @@ public class Game {
         answers.add(new Answer(new Label("Sigmund Freud"), new IsRight(Boolean.TRUE)));
         answers.add(new Answer(new Label("Merlin"), new IsRight(Boolean.FALSE)));
 
-        questions.add(new Question(new Label("¿Quién es el padre del psicoanalisis?"), answers));
+        questions.add(new Question(new Label("¿Quién es el padre del psychoanalysis?"), answers));
         answers.clear();
 
         answers.add(new Answer(new Label("Gótico"), new IsRight(Boolean.TRUE)));
@@ -107,8 +107,7 @@ public class Game {
 
         questions.add(new Question(new Label("¿Qué veterano músico es la canción Tears in Heaven?"), answers));
         answers.clear();
-
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(100), questions, new Category("No tan facil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(100), questions, new Category("No tan fácil")));
         questions.clear();
 
         //Ronda 3
@@ -118,7 +117,7 @@ public class Game {
         answers.add(new Answer(new Label("Rusia"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Finlandia"), new IsRight(Boolean.FALSE)));
 
-        questions.add(new Question(new Label("¿Dónde se originaron los juegos olimpicos"), answers));
+        questions.add(new Question(new Label("¿Dónde se originaron los juegos olímpicos"), answers));
         answers.clear();
 
         answers.add(new Answer(new Label("Belgica"), new IsRight(Boolean.FALSE)));
@@ -187,7 +186,7 @@ public class Game {
         answers.add(new Answer(new Label("6 de Enero"), new IsRight(Boolean.TRUE)));
         answers.add(new Answer(new Label("24 de diciembre"), new IsRight(Boolean.FALSE)));
 
-        questions.add(new Question(new Label("¿Qué día celebran los cristianos la festivalidad de la epifania de Jesús?"), answers));
+        questions.add(new Question(new Label("¿Qué día celebran los cristianos la festividad de la epifania de Jesús?"), answers));
         answers.clear();
 
         answers.add(new Answer(new Label("El apellido de un físico matemático"), new IsRight(Boolean.FALSE)));
@@ -198,14 +197,14 @@ public class Game {
         questions.add(new Question(new Label("La campana de Gauss está asociada a:"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(200), questions, new Category("Casi dificil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(200), questions, new Category("Casi difícil")));
         questions.clear();
 
         //Ronda 5
 
         answers.add(new Answer(new Label("Depredación"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Parasitismo"), new IsRight(Boolean.FALSE)));
-        answers.add(new Answer(new Label("Mutalismo"), new IsRight(Boolean.TRUE)));
+        answers.add(new Answer(new Label("Mutualismo"), new IsRight(Boolean.TRUE)));
         answers.add(new Answer(new Label("Parasitismo"), new IsRight(Boolean.FALSE)));
 
         questions.add(new Question(new Label("La relación recíproca positiva que se da entre individuos o poblaciones de dos especies distintas, de la cual ambas se benefician es denominada:"), answers));
@@ -228,9 +227,9 @@ public class Game {
         questions.add(new Question(new Label("El conjunto de condiciones físicas y biológicas que son fundamentales para la existencia y la supervivencia de los organismos es denominado:"), answers));
         answers.clear();
 
-        answers.add(new Answer(new Label("Morfológicas, fisiologicas y etológicas"), new IsRight(Boolean.TRUE)));
-        answers.add(new Answer(new Label("Genéticas, fisiologicas y etologicas"), new IsRight(Boolean.FALSE)));
-        answers.add(new Answer(new Label("Morfologicas, fisiologicas y genéticas"), new IsRight(Boolean.FALSE)));
+        answers.add(new Answer(new Label("Morfológicas, fisiológicas y etológicas"), new IsRight(Boolean.TRUE)));
+        answers.add(new Answer(new Label("Genéticas, fisiológicas y etológicas"), new IsRight(Boolean.FALSE)));
+        answers.add(new Answer(new Label("Morfológicas, fisiológicas y genéticas"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Ninguna de las anteriores"), new IsRight(Boolean.FALSE)));
 
         questions.add(new Question(new Label("Las adaptaciones en los seres vivos se clasifican en tres grandes grupos entre las que podemos mencionar:"), answers));
@@ -244,9 +243,7 @@ public class Game {
         questions.add(new Question(new Label("En nuestro planeta hay gran diversidad de ecosistemas que en su conjunto constituyen lo que se denomina:"), answers));
         answers.clear();
 
-        System.out.println(questions.size());
-
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions, new Category("Dificil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions, new Category("Difícil")));
         questions.clear();
 
         this.initializeCurrentRound();

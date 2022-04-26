@@ -1,82 +1,84 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import ValueObjects.Identifier;
+import ValueObjects.Round.Category;
+import ValueObjects.Round.PrizeToGet;
+import java.util.List;
 
 public class Round {
-    private Integer id;
-    private Integer prizeToGet;
-    private Question[] questions = new Question[5];
-    private String category;
-    private String playGame;
+    private Identifier id;
+    private PrizeToGet prizeToGet;
+    private List<Question> questions;
+    private Category category;
 
-    public Round() {
-        this.playGame = playGame;
+    public Round(Identifier id, PrizeToGet prizeToGet, List<Question> questions, Category category) {
+        this.id = id;
+        this.prizeToGet = prizeToGet;
+        this.questions = questions;
+        this.category = category;
     }
 
-
-    public String getPlayGame() {
-        return playGame;
+    public Question getRandomQuestion (){
+        this.questions.get()
+        return null;
     }
 
+    /*
     public void answerPlayGame(){
         Scanner answerPerson = new Scanner(System.in);
 
         System.out.println("Ingrese: 1 \n" + "Para poder iniciar el juego");
-
     }
 
-    public void createQuestion1(
+    public String createQuestion1(
             String question,
             String correctAnswer,
             String[] possibleAnswer) {
         String[] possibleAnswer1 = new String[4];
         questions[0] = new Question(question, correctAnswer, possibleAnswer);
-      /*  String correctAnswer2 = questions[0].getCorrectAnswer();
+       String correctAnswer2 = questions[0].getCorrectAnswer();
             Boolean isCorrectAnswer = questions[0].validateResponse(userAnswer);
 
         System.out.println(correctAnswer2);
-                System.out.println(isCorrectAnswer);*/
+                System.out.println(isCorrectAnswer);
 
-            //   System.out.println(toString());
+              System.out.println(toString());
+        return question;
     }
 
-
-    public void createQuestion2(String question, String correctAnswer, String[] possibleAnswer) {
+    public String createQuestion2(String question, String correctAnswer, String[] possibleAnswer) {
         questions[1] = new Question(question, correctAnswer, possibleAnswer);
-       /* answerQuestion();
+       answerQuestion();
         String correctAnswer2 = questions[1].getCorrectAnswer();
         Boolean isCorrectAnswer = questions[1].validateResponse(userAnswer);
 
                 System.out.println(correctAnswer2);
-                        System.out.println(isCorrectAnswer);*/
-        // System.out.println(toString());
+                        System.out.println(isCorrectAnswer);
+        System.out.println(toString());
+        return question;
     }
 
-    public void createQuestion3(String question, String correctAnswer, String[] possibleAnswer) {
+    public String createQuestion3(String question, String correctAnswer, String[] possibleAnswer) {
         questions[2] = new Question(question, correctAnswer, possibleAnswer);
-        // System.out.println(toString());
+        System.out.println(toString());
+        return question;
     }
 
-    public void createQuestion4(String question, String correctAnswer, String[] possibleAnswer) {
+    public String createQuestion4(String question, String correctAnswer, String[] possibleAnswer) {
         questions[3] = new Question(question, correctAnswer, possibleAnswer);
         //  System.out.println(toString());
+        return question;
     }
 
-    public void createQuestion5(String question, String correctAnswer, String[] possibleAnswer) {
+    public String createQuestion5(String question, String correctAnswer, String[] possibleAnswer) {
         questions[4] = new Question(question, correctAnswer, possibleAnswer);
-        System.out.println(toString());
         System.out.println();
+        return question;
     }
-
-
     @Override
     public String toString() {
-        return "Round: " + '\n' +
+        return "Pregunta: " + '\n' +
+                "Este toString es el de ronda" +
                 Arrays.toString(questions);
     }
 
-    public void drawRandomQuestion() {
-    }
-
-    public void validateRound() {
-    }
+     */
 }

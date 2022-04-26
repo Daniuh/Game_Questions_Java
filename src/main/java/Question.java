@@ -22,19 +22,10 @@ public class Question {
         return correctAnswer;
     }
 
+
     @Override
     public String toString() {
         return '\n' + "Pregunta = " + question + '\n' +
                 "Opciones = " + Arrays.toString(possibleAnswers) + '\n' ;
-    }
-
-
-
-    public Boolean validateResponse(String userAnswer) {
-
-        if(userAnswer == correctAnswer){
-            return true;
-        }
-        return false;
     }
 }

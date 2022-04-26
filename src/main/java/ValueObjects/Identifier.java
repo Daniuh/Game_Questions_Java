@@ -1,9 +1,13 @@
 package ValueObjects;
 
 public class Identifier {
-    String value;
+    private Integer value;
 
-    public Identifier(Long value) {
-        this.value = value.toString();
+    public Identifier(Integer value) {
+        this.value = value;
+    }
+
+    public Integer getValue() {
+        return value;
     }
 }

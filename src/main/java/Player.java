@@ -20,13 +20,17 @@ public class Player {
         return name;
     }
 
+    public TotalScore getTotalScore() {
+        return totalScore;
+    }
+
     public void accumulateScore(Integer score) {
         this.totalScore = new TotalScore(this.totalScore.getValue() + score);
     }
 
     public void playerRegistration(){
         System.out.println("Ingrese su nombre");
-        this.setName(player.nextLine());
+        this.setName(this.player.nextLine());
     }
 
     private void setName(String name) {

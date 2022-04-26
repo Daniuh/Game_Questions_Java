@@ -4,20 +4,47 @@ import ValueObjects.Player.TotalScore;
 import ValueObjects.Question.Label;
 import ValueObjects.Round.Category;
 import ValueObjects.Round.PrizeToGet;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import static java.lang.System.in;
 
 public class Game {
     private Round currentRound;
     private List<Round> rounds;
     private Player player;
 
+    private final Scanner read = new Scanner(in);
+
     public Game() {
         this.rounds = new ArrayList<>();
     }
 
-    public void launchRound(){
-        System.out.println(this.currentRound.launchQuestion());
+    public void launchRound() {
+        Boolean responseQuestion = this.currentRound.launchQuestion();
+        Integer counter = 1;
+        for (int i = 0; i <= 5; i++) {
+            if (responseQuestion) {
+                this.player.accumulateScore(currentRound.getPrizeToGet().getValue());
+                if(counter < 5){
+                    showScoreCorrectQuestion();
+                    if (answerPersonContinue() == 1){
+                        setCurrentRound(counter);
+                        responseQuestion = this.currentRound.launchQuestion();
+                        counter ++;
+                    }else{
+                        finishGameDecisionPerson();
+                        break;
+                    }
+                    counterFinishGame(counter);
+                }
+            }else{
+                finishGameFailed();
+                break;
+            }
+        }
     }
 
     public void setUp() {
@@ -235,7 +262,7 @@ public class Game {
         questions.add(new Question(new Label("Las adaptaciones en los seres vivos se clasifican en tres grandes grupos entre las que podemos mencionar:"), answers));
         answers.clear();
 
-        answers.add(new Answer(new Label("'Comunidad"), new IsRight(Boolean.FALSE)));
+        answers.add(new Answer(new Label("Comunidad"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Biosfera"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Globo terráqueo"), new IsRight(Boolean.FALSE)));
         answers.add(new Answer(new Label("Ninguna de las anteriores"), new IsRight(Boolean.TRUE)));
@@ -246,15 +273,15 @@ public class Game {
         this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions, new Category("Difícil")));
         questions.clear();
 
-        this.initializeCurrentRound();
+        this.setCurrentRound(0);
         this.rules();
         this.setPlayer();
     }
 
-    private void setPlayer(){
-        Player player = new Player(new Identifier(), new TotalScore(0));
+    private void setPlayer() {
+        this.player = new Player(new Identifier(), new TotalScore(0));
 
-        player.playerRegistration();
+        this.player.playerRegistration();
     }
 
     private void rules() {
@@ -269,7 +296,44 @@ public class Game {
                 "|*********( Buena suerte )*********|");
     }
 
-    private void initializeCurrentRound(){
-        this.currentRound = this.rounds.get(0);
+    private void setCurrentRound(Integer index) {
+        this.currentRound = this.rounds.get(index);
+    }
+
+    private void finishGameSuccess(){
+        Integer finalScore = (int)this.player.getTotalScore().getValue();
+        System.out.println("Felicidades " + this.player.getName().getValue() + " has finalizado correctamente. \n" +
+                            "Tus puntos son: " + (finalScore + 250));
+    }
+
+    private void finishGameFailed(){
+        System.out.println("Lo sentimos " + this.player.getName().getValue() + " respuesta incorrecta :( \n" +
+                             "Has perdido tus puntos.");
+    }
+
+    private void finishGameDecisionPerson(){
+        System.out.println(this.player.getName().getValue() + " has decidido retirarte \n" +
+                "Los puntos que te llevas son: " + this.player.getTotalScore().getValue());
+    }
+
+    private Integer answerPersonContinue(){
+        Integer answerPerson = 0;
+        System.out.println("Desea continuar: \n" +
+                        "1. Sí \n" + "2. No");
+        answerPerson = this.read.nextInt();
+        return answerPerson;
+    }
+
+    private void counterFinishGame(Integer counter){
+        if (counter >= 5){
+            finishGameSuccess();
+            return;
+        }
+    }
+
+    private void showScoreCorrectQuestion(){
+        if(this.player.getTotalScore().getValue() != 750){
+            System.out.println("+" + this.player.getTotalScore().getValue());
+        }
     }
 }

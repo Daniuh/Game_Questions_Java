@@ -19,6 +19,10 @@ public class Round {
         this.category = category;
     }
 
+    public PrizeToGet getPrizeToGet() {
+        return prizeToGet;
+    }
+
     public Boolean launchQuestion(){
         Question question = this.getRandomQuestion();
         return question.replyQuestion();

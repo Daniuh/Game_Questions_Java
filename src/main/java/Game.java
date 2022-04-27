@@ -2,7 +2,6 @@ import ValueObjects.Answer.IsRight;
 import ValueObjects.Identifier;
 import ValueObjects.Player.TotalScore;
 import ValueObjects.Question.Label;
-import ValueObjects.Round.Category;
 import ValueObjects.Round.PrizeToGet;
 
 import java.util.ArrayList;
@@ -90,7 +89,7 @@ public class Game {
         questions.add(new Question(new Label("¿Cuál es el lugar más frio del mundo?"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(50), questions, new Category("Fácil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(50), questions));
         questions.clear();
 
         //Ronda 2
@@ -134,7 +133,7 @@ public class Game {
 
         questions.add(new Question(new Label("¿Qué veterano músico es la canción Tears in Heaven?"), answers));
         answers.clear();
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(100), questions, new Category("No tan fácil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(100), questions));
         questions.clear();
 
         //Ronda 3
@@ -179,7 +178,7 @@ public class Game {
         questions.add(new Question(new Label("¿Cuáles son las flores más famosas pintadas por Van Gogh?"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(150), questions, new Category("Intermedio")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(150), questions));
         questions.clear();
 
         //Ronda 4
@@ -224,7 +223,7 @@ public class Game {
         questions.add(new Question(new Label("La campana de Gauss está asociada a:"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(200), questions, new Category("Casi difícil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(200), questions));
         questions.clear();
 
         //Ronda 5
@@ -270,7 +269,7 @@ public class Game {
         questions.add(new Question(new Label("En nuestro planeta hay gran diversidad de ecosistemas que en su conjunto constituyen lo que se denomina:"), answers));
         answers.clear();
 
-        this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions, new Category("Difícil")));
+        this.rounds.add(new Round(new Identifier(), new PrizeToGet(250), questions));
         questions.clear();
 
         this.setCurrentRound(0);
